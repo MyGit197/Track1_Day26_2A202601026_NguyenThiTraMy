@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Operating Dashboard — LinguaFlow AI</title>
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 10mm 10mm 10mm 10mm;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 10pt;
+    line-height: 1.35;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+  }
+  .page {
+    page-break-after: always;
+    box-sizing: border-box;
+  }
+  .page:last-child {
+    page-break-after: avoid;
+  }
+  h1 {
+    font-size: 15pt;
+    margin: 0 0 6px 0;
+    color: #0f172a;
+    border-bottom: 2px solid #2563eb;
+    padding-bottom: 4px;
+  }
+  h2 {
+    font-size: 10.5pt;
+    margin: 8px 0 4px 0;
+    color: #1e293b;
+    background-color: #f1f5f9;
+    padding: 3px 6px;
+    border-left: 4px solid #2563eb;
+  }
+  p, blockquote {
+    margin: 4px 0;
+  }
+  blockquote {
+    font-style: italic;
+    color: #475569;
+    background: #f8fafc;
+    border-left: 3px solid #94a3b8;
+    padding: 4px 8px;
+    font-size: 9pt;
+  }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px 12px;
+    background: #f8fafc;
+    padding: 6px 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    font-size: 9pt;
+    margin-bottom: 6px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 4px 0 8px 0;
+    font-size: 8.5pt;
+  }
+  th, td {
+    border: 1px solid #cbd5e1;
+    padding: 4px 5px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background-color: #f1f5f9;
+    font-weight: 600;
+    color: #0f172a;
+  }
+  tr:nth-child(even) {
+    background-color: #f8fafc;
+  }
+  .badge-green { color: #15803d; font-weight: bold; }
+  .badge-yellow { color: #b45309; font-weight: bold; }
+  .badge-red { color: #b91c1c; font-weight: bold; }
+  .stop-yes { background-color: #fef2f2; color: #991b1b; font-weight: bold; text-align: center; }
+  .stop-no { color: #475569; text-align: center; }
+  .footer-note {
+    font-size: 8pt;
+    color: #64748b;
+    margin-top: 6px;
+    border-top: 1px dashed #cbd5e1;
+    padding-top: 4px;
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: ONE PAGE DASHBOARD -->
+<div class="page">
+  <h1>Operating Dashboard — LinguaFlow AI</h1>
+  
+  <div class="meta-grid">
+    <div><strong>Họ và tên:</strong> Nguyễn Thị Trà My (MSSV: 2A202601026)</div>
+    <div><strong>Mô hình kinh doanh:</strong> B2B</div>
+    <div><strong>Cập nhật:</strong> 2026-08-28</div>
+    <div><strong>Owner phiên họp:</strong> Product Operations</div>
+  </div>
+
+  <p style="font-size: 9pt; margin-bottom: 6px;">
+    <strong>Chẩn đoán:</strong> Doanh nghiệp (công ty IT Outsourcing & Xuất nhập khẩu quy mô 20–200 nhân sự) trả phí theo gói/job; người dùng trực tiếp là PM và nhân sự nội bộ vận hành cuộc họp đa quốc gia; sản phẩm không có quan hệ độc lập trực tiếp với khách hàng cuối của doanh nghiệp.
+  </p>
+
+  <p style="font-size: 9.5pt; background: #e0f2fe; padding: 4px 8px; border-radius: 4px; border-left: 4px solid #0284c7; margin-bottom: 6px;">
+    <strong>North Star Metric:</strong> Median Time-to-first-value (TTFV) &nbsp;|&nbsp; <strong>Hiện tại:</strong> 14 ngày &nbsp;|&nbsp; <strong>Mục tiêu:</strong> ≤ 7 ngày &nbsp;|&nbsp; Trạng thái: <span class="badge-yellow">🟡 CẢNH BÁO</span>
+  </p>
+
+  <h2>1. Cây đèn 3 tầng tín hiệu</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 8%;">Tầng / ID</th>
+        <th style="width: 32%;">Metric & Định nghĩa ngắn</th>
+        <th style="width: 25%;">Hiện tại · 🟢 / 🟡 / 🔴 · Nguồn</th>
+        <th style="width: 17%;">Nhịp · Owner</th>
+        <th style="width: 18%;">Báo trước cho · Luật</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>L · L-01</strong></td>
+        <td><strong>Time-to-first-value:</strong> Median ngày kickoff → cuộc họp đa quốc gia xuất biên bản QA</td>
+        <td>14d · ≤7 / 8–14 / >14 · <code>[TB]</code></td>
+        <td>Tuần · Product Ops</td>
+        <td>POC→paid + NRR · R-01</td>
+      </tr>
+      <tr>
+        <td><strong>L · L-02</strong></td>
+        <td><strong>Pipeline coverage Partner:</strong> ARR pipeline Partner xác minh ÷ target doanh thu quý</td>
+        <td>2.4× · ≥3.0 / 2.0–2.9 / <2.0 · <code>[TB]</code></td>
+        <td>Tuần · Revenue Ops</td>
+        <td>POC→paid · R-02</td>
+      </tr>
+      <tr>
+        <td><strong>O · O-01</strong></td>
+        <td><strong>Containment Rate:</strong> Cuộc họp AI tự động hoàn thành không lỗi ÷ tổng cuộc họp AI</td>
+        <td>82.0% · ≥80.0 / 71.63–79.9 / <71.63 · <code>[MH]</code></td>
+        <td>Tuần · Product Ops</td>
+        <td>Gross Margin · R-03</td>
+      </tr>
+      <tr>
+        <td><strong>O · O-02</strong></td>
+        <td><strong>Chi phí AI & Speech / job:</strong> API LLM, Speech, TTS & Retry ÷ completed meeting</td>
+        <td>$0.159 · ≤$0.200 / 0.201–0.423 / >$0.423 · <code>[MH]</code></td>
+        <td>Tuần · FinOps</td>
+        <td>Gross Margin · R-04</td>
+      </tr>
+      <tr>
+        <td><strong>O · O-03</strong></td>
+        <td><strong>POC → Paid conversion:</strong> Doanh nghiệp pilot ký paid chính thức ÷ tổng pilot kết thúc</td>
+        <td>40.0% · ≥50.0 / 35.0–49.9 / <35.0 · <code>[BM]</code></td>
+        <td>Tháng · Revenue Ops</td>
+        <td>CAC payback · R-03</td>
+      </tr>
+      <tr>
+        <td><strong>G · G-01</strong></td>
+        <td><strong>Gross Margin sau AI & HITL:</strong> (Doanh thu - tổng COGS biến đổi) ÷ doanh thu</td>
+        <td>72.65% · ≥60.0 / 50.0–59.9 / <50.0 · <code>[BM]</code></td>
+        <td>Tháng · Finance</td>
+        <td>Runway + Payback · R-04</td>
+      </tr>
+      <tr>
+        <td><strong>G · G-02</strong></td>
+        <td><strong>CAC Payback Period:</strong> Fully-loaded CAC gồm 25% rev-share ÷ (ARPU × GM %)</td>
+        <td>8.5m · ≤12.0 / 12.1–15.0 / >15.0 · <code>[BM]</code></td>
+        <td>Quý · Finance</td>
+        <td>LTV/CAC · R-05</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>2. 5 Luật quyết định (Decision Rules)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 6%;">ID</th>
+        <th style="width: 32%;">NẾU · TRONG · VÀ</th>
+        <th style="width: 32%;">THÌ (Hành động bắt buộc)</th>
+        <th style="width: 24%;">KHÔNG THÌ (Phản xạ bị cấm)</th>
+        <th style="width: 6%;">Dừng?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>R-01</strong></td>
+        <td>Median TTFV >14d · 2 cohort liên tiếp · ≥5 pilot/cohort</td>
+        <td>Tạm dừng pilot mới 14d; cắt onboarding xuống 1 use case Google Meet</td>
+        <td>Không giảm giá hợp đồng bù TTFV</td>
+        <td class="stop-yes">CÓ</td>
+      </tr>
+      <tr>
+        <td><strong>R-02</strong></td>
+        <td>Pipeline Partner <2.0× · 3 tuần · ≥3 Partner</td>
+        <td>Điều chuyển 1 Partner Enablement hỗ trợ demo trực tiếp</td>
+        <td>Không mở kênh Outbound trực tiếp</td>
+        <td class="stop-no">KHÔNG</td>
+      </tr>
+      <tr>
+        <td><strong>R-03</strong></td>
+        <td>Containment <71.63% · 2 tuần · ≥100 cuộc họp</td>
+        <td>Đóng băng Outbound sales; dồn engineering sửa prompt 1 sprint</td>
+        <td>Không tăng MKT để tuyển thêm POC</td>
+        <td class="stop-yes">CÓ</td>
+      </tr>
+      <tr>
+        <td><strong>R-04</strong></td>
+        <td>Chi phí AI >$0.423/job · 2 tuần · ≥200 job QA</td>
+        <td>Kích hoạt Semantic Caching; giảm context window từ 6 về 3 turns</td>
+        <td>Không cắt bỏ quy trình QA 5%</td>
+        <td class="stop-no">KHÔNG</td>
+      </tr>
+      <tr>
+        <td><strong>R-05</strong></td>
+        <td>CAC Payback >15.0m · 2 quý · ≥15 account paid</td>
+        <td>Tái đàm phán giảm rev-share Partner từ 25% về 18% và upsell</td>
+        <td>Không tài trợ khuyến mãi free khách mới</td>
+        <td class="stop-no">KHÔNG</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>3. Cổng gác 90 ngày (90-Day Gates) & Ground Truth</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 10%;">Ngày</th>
+        <th style="width: 42%;">Metric gác cổng · Ngưỡng</th>
+        <th style="width: 33%;">Bằng chứng vật lý (Evidence)</th>
+        <th style="width: 15%;">Đạt / Trượt</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Ngày 30</strong></td>
+        <td>Tỷ lệ pilot xong 5 họp thật trong 14d · ≥70.0% trên 10 pilot</td>
+        <td>Event log report Google Meet Chrome Extension (redacted)</td>
+        <td><strong>GO / FIX</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Ngày 60</strong></td>
+        <td>Median Time-to-first-value (TTFV) · ≤7.0 ngày trên ≥15 pilot</td>
+        <td>TTFV Cohort report từ hệ thống Product Analytics</td>
+        <td><strong>GO / PIVOT</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Ngày 90</strong></td>
+        <td>Gross Margin sau chi phí AI & HITL · ≥60.0% trên ≥35 account</td>
+        <td>Billing export ghép chi phí API LLM & Speech</td>
+        <td><strong>GO / KILL</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="font-size: 8.5pt; margin: 4px 0;">
+    <strong>Kill criteria:</strong> KILL ngày 90 nếu GM &lt;50.0% sau 2 sprint tối ưu prompt/model và không có 20 account paid chấp nhận giá $1.50/job.<br>
+    <strong>Chưa đo được:</strong> Tỷ lệ lỗi dịch tiếng lóng IT/Logistics · cần 50 mẫu audio và Eval Day 21-22 · owner Product Operations · có số 2026-09-15.
+  </p>
+</div>
+
+<!-- PAGE 2: APPENDIX & EVIDENCE -->
+<div class="page">
+  <h1>Phụ lục — Ngưỡng suy từ mô hình [MH] & Evidence</h1>
+  
+  <h2>1. Phụ lục Ngưỡng suy từ Mô hình Day 24–25 [MH]</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 8%;">ID</th>
+        <th style="width: 25%;">Metric áp dụng</th>
+        <th style="width: 27%;">Input từ Day 24–25</th>
+        <th style="width: 20%;">Phép tính chi tiết</th>
+        <th style="width: 20%;">Kết quả & Ngưỡng áp dụng</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>MH-01</strong></td>
+        <td>Chi phí AI & Speech tối đa trên completed job (O-02)</td>
+        <td>Giá bán P = $1.50/job; GM mục tiêu = 60%; QA q = $0.015/job; Escalation e = $0.90/ca với lỗi 18% ($0.162/job)</td>
+        <td><code>1.50 × (1 - 0.60) - 0.015 - 0.162 = 0.423</code></td>
+        <td>Trần Chi phí AI tối đa = <strong>$0.423 / job</strong>. Áp dụng cho ngưỡng Đỏ O-02 (>$0.423) & G-01 (&lt;60%).</td>
+      </tr>
+      <tr>
+        <td><strong>MH-02</strong></td>
+        <td>Breakeven Containment Rate tối thiểu (O-01)</td>
+        <td>Giá P = $1.50/job; Biến phí v = $0.15939; QA q = $0.01500; Escalation e = $0.90000; GM mục tiêu = 60%</td>
+        <td><code>(0.15939 + 0.01500 + 0.90000) ÷ (1.50 × 0.40 + 0.90000) = 1.07439 ÷ 1.50000 = 71.63%</code></td>
+        <td>Containment Rate tối thiểu = <strong>71.63%</strong>. Áp dụng cho ngưỡng Đỏ O-01 (&lt;71.63%). Dưới mức này GM &lt;60%.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>2. Bảng Bằng chứng & Truy vết Nguồn Benchmark [BM] & Baseline [TB]</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 10%;">ID Metric</th>
+        <th style="width: 10%;">Loại nguồn</th>
+        <th style="width: 45%;">Tên nguồn / URL / Kế hoạch chi tiết</th>
+        <th style="width: 15%;">Ngày kiểm tra</th>
+        <th style="width: 20%;">Lý do áp dụng ngưỡng</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>L-01</td>
+        <td><code>[TB]</code></td>
+        <td>Đo 3 cohort pilot ban đầu để chốt baseline chính thức vào ngày 2026-10-31</td>
+        <td>2026-08-28</td>
+        <td>TTFV cần đo lường thực tế qua hành vi cài bot và xuất task họp của doanh nghiệp pilot</td>
+      </tr>
+      <tr>
+        <td>L-02</td>
+        <td><code>[TB]</code></td>
+        <td>Áp dụng quy ước ngành 3.0× cho win rate 33%, sẽ điều chỉnh vào 2026-11-30</td>
+        <td>2026-08-28</td>
+        <td>Coverage 3× bảo vệ pipeline doanh thu khi win rate kênh Partner chưa ổn định</td>
+      </tr>
+      <tr>
+        <td>O-03</td>
+        <td><code>[BM]</code></td>
+        <td>Benchmarkit State of B2B SaaS 2026 <br><a href="https://www.benchmarkit.ai/reports/2026-b2b-saas-benchmarks">https://www.benchmarkit.ai/reports/2026-b2b-saas-benchmarks</a></td>
+        <td>2026-08-28</td>
+        <td>Mốc trung vị conversion POC/pilot B2B SaaS toàn ngành là 50.0%</td>
+      </tr>
+      <tr>
+        <td>G-01</td>
+        <td><code>[BM]</code></td>
+        <td>ICONIQ Growth AI Cloud Report 2026 <br><a href="https://www.iconiqgrowth.com/insights/ai-cloud-2026">https://www.iconiqgrowth.com/insights/ai-cloud-2026</a></td>
+        <td>2026-08-28</td>
+        <td>Biên lợi nhuận gộp trung vị AI-native SaaS 2026E là ~53.0%, đặt mục tiêu an toàn ≥60%</td>
+      </tr>
+      <tr>
+        <td>G-02</td>
+        <td><code>[BM]</code></td>
+        <td>Bessemer Venture Partners State of the Cloud 2026 <br><a href="https://www.bvp.com/atlas/state-of-the-cloud-2026">https://www.bvp.com/atlas/state-of-the-cloud-2026</a></td>
+        <td>2026-08-28</td>
+        <td>Mốc an toàn cho SMB B2B SaaS payback period &lt;12 tháng</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>3. Ghi nhận AI Critique & Tinh chỉnh Logic</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 25%;">Phản biện từ AI</th>
+        <th style="width: 15%;">Trạng thái</th>
+        <th style="width: 30%;">Thay đổi đã thực hiện</th>
+        <th style="width: 30%;">Lý do lập luận</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>TTFV cần định nghĩa kết quả đo lường cụ thể thay vì chỉ cài xong bot</td>
+        <td>Chấp nhận</td>
+        <td>Bổ sung mốc hoàn thành cuộc họp đa quốc gia đầu tiên đạt 100% QA và tự động xuất task sang Slack/Notion</td>
+        <td>Đảm bảo tính đo lường chính xác và không bị đọc thành cài đặt phần mềm thuần túy</td>
+      </tr>
+      <tr>
+        <td>Nên lấy benchmark NRR 101% của SaaS làm ngưỡng hành động</td>
+        <td>Bác bỏ</td>
+        <td>Giữ CAC Payback &lt;12 tháng và NRR đo theo cohort nội bộ</td>
+        <td>Giai đoạn 90 ngày đầu ưu tiên hoàn vốn CAC hơn mở rộng tài khoản NRR khi chưa đủ chu kỳ năm</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
